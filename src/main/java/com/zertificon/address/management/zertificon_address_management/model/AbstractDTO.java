@@ -8,7 +8,7 @@ public abstract class AbstractDTO implements Serializable {
 
     private UUID id;
 
-    private UUID version;
+    private int version;
 
     public UUID getId() {
         return id;
@@ -18,11 +18,11 @@ public abstract class AbstractDTO implements Serializable {
         this.id = id;
     }
 
-    public UUID getVersion() {
+    public int getVersion() {
         return version;
     }
 
-    public void setVersion(UUID version) {
+    public void setVersion(int version) {
         this.version = version;
     }
 }

@@ -1,9 +1,6 @@
 package com.zertificon.address.management.zertificon_address_management.model;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Past;
-import javax.validation.constraints.Positive;
+import javax.validation.constraints.*;
 import java.util.Date;
 
 public class AddressDTO extends AbstractDTO {
@@ -23,7 +20,7 @@ public class AddressDTO extends AbstractDTO {
 
     private String street;
 
-    @Positive
+    @PositiveOrZero
     private int zipCode;
 
     private String country;

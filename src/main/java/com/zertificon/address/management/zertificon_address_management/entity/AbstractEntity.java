@@ -3,10 +3,7 @@ package com.zertificon.address.management.zertificon_address_management.entity;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.UUID;
 
@@ -22,8 +19,8 @@ public abstract class AbstractEntity implements Serializable {
     private UUID id;
 
     @Column(name = "version")
-    @Type(type = "org.hibernate.type.UUIDCharType")
-    private UUID version;
+    @Version
+    private int version;
 
     public UUID getId() {
         return id;
@@ -33,11 +30,11 @@ public abstract class AbstractEntity implements Serializable {
         this.id = id;
     }
 
-    public UUID getVersion() {
+    public int getVersion() {
         return version;
     }
 
-    public void setVersion(UUID version) {
+    public void setVersion(int version) {
         this.version = version;
     }
 }
