@@ -38,6 +38,15 @@ public abstract class CrudController<ENTITY extends AbstractEntity, DTO extends 
                         this.converter.convertDtoToEntity(dto)));
     }
 
+    @GetMapping(path = "/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public DTO getById(@PathVariable UUID id) throws RuntimeException {
+        Optional<ENTITY> maybeEntity = this.service.getOne(id);
+        return maybeEntity
+                .map(entity -> this.converter.convertEntityToDto(entity))
+                .orElseThrow(() -> new EntityNotFoundException(id.toString()));
+    }
+
     @DeleteMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteAll(){

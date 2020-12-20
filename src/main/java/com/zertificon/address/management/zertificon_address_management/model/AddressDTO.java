@@ -25,6 +25,26 @@ public class AddressDTO extends AbstractDTO {
 
     private String country;
 
+    public AddressDTO() {
+    }
+
+    public AddressDTO(@NotEmpty String firstName, @NotEmpty String lastName, @NotEmpty @Email String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+    }
+
+    public AddressDTO(@NotEmpty String firstName, @NotEmpty String lastName, @NotEmpty @Email String email,
+                      @Past Date dateOfBirth, String street, @PositiveOrZero int zipCode, String country) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.dateOfBirth = dateOfBirth;
+        this.street = street;
+        this.zipCode = zipCode;
+        this.country = country;
+    }
+
     public String getFirstName() {
         return firstName;
     }
