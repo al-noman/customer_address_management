@@ -40,7 +40,7 @@ public abstract class CrudController<ENTITY extends AbstractEntity, DTO extends 
 
     @GetMapping(path = "/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public DTO getById(@PathVariable UUID id) throws RuntimeException {
+    public DTO getById(@PathVariable UUID id) {
         Optional<ENTITY> maybeEntity = this.service.getOne(id);
         return maybeEntity
                 .map(entity -> this.converter.convertEntityToDto(entity))
