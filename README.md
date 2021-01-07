@@ -1,2 +1,2 @@
 # customer_address_management
-Coding challenge for Zertificon GmbH
+Demo project with Mockito and Junit 5 tests
